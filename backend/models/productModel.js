@@ -1,12 +1,6 @@
 import mongoose from "mongoose";
 
 const reviewSchema = mongoose.Schema({
-    productId:{
-        type: mongoose.SchemaTypes.ObjectId,
-        required: true,
-         index: true,
-         ref: 'User' 
-    },
     name:{
         type:String,
         required:true
@@ -17,8 +11,12 @@ const reviewSchema = mongoose.Schema({
     },
     comment:{
         type:String,
-        required:true
-    }
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User',
+      }
 
 },{timestamps:true})
 
